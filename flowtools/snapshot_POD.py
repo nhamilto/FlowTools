@@ -24,7 +24,6 @@ def decompose(flowfield):
     # enforce use of fluctuating fields
     flowfield = _enforce_flucs(flowfield)
     # concatenate fluctuating velocity fields
-    # number of points in space = nx*ny*nz
     npoints = 1
     for coordkey in flowfield.coordinates:
         if coordkey not in ['t']:
@@ -33,14 +32,15 @@ def decompose(flowfield):
     for key in flowfield.flucfield:
         uStack = np.concatenate((uStack, np.reshape(flowfield.flucfield[key], [npoints, flowfield.npts['t']])), axis = 0)
     # correlation matrix
-    C = np.dot(uStack.transpose(), uStack)
+    C = np.dot(uStack.transpose(), uStack)/flowfield.npts['t']
+    
     # eigenvalue decomposition
     val, vec = np.linalg.eig(C)
     # project onto velocity fields to find modes
-    phi = np.dot(uStack, C)
+    phi = np.dot(uStack, vec)
     # normalize each mode by its respective L2-norm
     for mode in range(flowfield.npts['t']):
-        phi[:, mode] = phi[:, mode]/np.linalg.norm(phi[:, mode])
+        phi[:, mode] = phi[:, mode]/np.linalg.norm(phi[:, mode], 2)
     # unpack modes 
     flowfield.POD = {'modes': {}}; temp = 0
     for key in flowfield.flucfield:
@@ -76,12 +76,14 @@ def recompose_rst(flowfield, nmodes = None):
     reduced-order description of the turbulence field. Filters the Reynolds
     stress tensor by truncating the POD mode basis. 
     """
+    # modes of interest
+    nmodes = _parse_modes(flowfield, nmodes)
     flowfield.POD['rst'] = {}
     for i in flowfield.POD['modes']:
         for j in flowfield.POD['modes']:
             if j >= i:
-                temp = np.multiply(flowfield.POD['modes'][i], flowfield.POD['modes'][j])
-                flowfield.POD['rst'][i+j] = np.mean(np.multiply(temp, flowfield.POD['lam'][np.newaxis, np.newaxis, :]), axis = -1)
+                temp = np.multiply(flowfield.POD['modes'][i][..., nmodes], flowfield.POD['modes'][j][..., nmodes])
+                flowfield.POD['rst'][i+j] = np.sum(np.multiply(temp, flowfield.POD['lam'][np.newaxis, np.newaxis, nmodes]), axis = -1)
                 
 #def recompose_flucfield(POD, nmodes = None):
 #    """
