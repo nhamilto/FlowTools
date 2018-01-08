@@ -85,11 +85,21 @@ def recompose_rst(flowfield, nmodes = None):
                 temp = np.multiply(flowfield.POD['modes'][i][..., nmodes], flowfield.POD['modes'][j][..., nmodes])
                 flowfield.POD['rst'][i+j] = np.sum(np.multiply(temp, flowfield.POD['lam'][np.newaxis, np.newaxis, nmodes]), axis = -1)
                 
-#def recompose_flucfield(POD, nmodes = None):
-#    """
-#    reduced-order description of the turbulence field. Filters the Reynolds
-#    stress tensor by truncating the POD mode basis. 
-#    """
+def recompose_flucfield(flowfield, nmodes = None):
+    """
+    reduced-order description of the turbulence field. Filters the fluctuating
+    velocity field by truncating the POD mode basis and combinging with the
+    respective coefficients. 
+    """
+    # modes of interest
+    nmodes = _parse_modes(flowfield, nmodes)
+    flowfield.POD['vel_field_rec']={}
+    for key in flowfield.POD['modes']:
+#        temp1 = np.reshape()
+#        temp2 = np.reshape()
+#        print(temp1.shape)
+#        print(temp2.shape)
+        flowfield.POD['vel_field_rec'][key] = np.sum(flowfield.POD['modes'][key][..., nmodes, np.newaxis] * flowfield.POD['coeff'][np.newaxis, np.newaxis, ...], axis = 2)
 
 # POD plotting function to check eigenvalues
 def check_lam(flowfield):
@@ -148,8 +158,8 @@ def _parse_modes(flowfield, nmodes):
         print('Defaulting to', nmodes, 'modes for 50% tke')
         nmodes = np.arange(nmodes)
     elif isinstance(nmodes, int):
-        print('calculating coefficients up to mode', nmodes)
+        print('Using coefficients up to mode', nmodes)
         nmodes = np.arange(nmodes)
     elif isinstance(nmodes, (list, np.ndarray)):
-        print('calculating coefficients for modes:', list(nmodes))
+        print('Using coefficients for modes:', list(nmodes))
     return nmodes

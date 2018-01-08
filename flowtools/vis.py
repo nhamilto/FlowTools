@@ -14,12 +14,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #%%
+
 # 2D contour plot: coords = ['y', 'z'], val = flowfield.'U'
 def contourf(flowfield, coords, cval):
-    fig = plt.figure
+    fig = plt.figure()
     x, y = flowfield.coordinates[coords[0]], flowfield.coordinates[coords[1]]
     plt.contourf(x, y, cval, 32)
-#    plt.axis('scaled')
     plt.xlabel(coords[0])
     plt.ylabel(coords[1])
     plt.colorbar()

@@ -55,14 +55,9 @@ flowtest = ft.FlowField(velocities, coordinates)
 flowtest.mean_flow()
 flowtest.turbulent_stresses()
 ft.snapshot_POD.decompose(flowtest)
-fig = ft.snapshot_POD.check_lam(flowtest)
+#fig = ft.snapshot_POD.check_lam(flowtest)
 ft.snapshot_POD.calc_coefficients(flowtest)
-fig, ax = ft.snapshot_POD.coeff_plot(flowtest)
+#fig, ax = ft.snapshot_POD.coeff_plot(flowtest)
 ft.snapshot_POD.recompose_rst(flowtest)
         
 flowtest.who()
-
-fig, axs = ft.vis.rst_contours(flowtest, ['z', 'y'], flowtest.rst, commonscale = False)
-fig, axs = ft.vis.rst_contours(flowtest, ['z', 'y'], flowtest.POD['rst'], commonscale = False)
-
-ft.snapshot_POD.recompose_flucfield(flowtest)
