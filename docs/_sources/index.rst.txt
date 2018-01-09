@@ -16,10 +16,6 @@
    usage
    code
 
-  
-
-
-
 Indices and tables
 ==================
 

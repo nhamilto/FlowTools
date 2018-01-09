@@ -26,7 +26,7 @@ Look through the GitHub issues for features. Anything tagged with "enhancement" 
 
 Write Documentation
 ^^^^^^^^^^^^^^^^^^^^^
-Wind Tools could always use more documentation, whether as part of the official Wind Tools docs, in docstrings, or even on the web in blog posts, articles, and such.
+FlowTools could always use more documentation, whether as part of the official FlowTools docs, in docstrings, or even on the web in blog posts, articles, and such.
 
 Submit Feedback
 ^^^^^^^^^^^^^^^^^^
