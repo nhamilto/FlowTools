@@ -8,7 +8,12 @@ Created on Thu Jan  4 09:12:34 2018
 @version: v.0.1
 """
 
+__author__ = 'Nicholas Hamilton'
+__email__ = 'nicholas.hamilton@nrel.gov'
+__version__ = 'v.0.1'
+
+
 from .FlowField import FlowField
 from flowtools import snapshot_POD
 from flowtools import vis
-print('module initialized')
+# print('module initialized')
