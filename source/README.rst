@@ -34,14 +34,14 @@ This Python module provides a set of tools for:
 The hope for this toolbox is to have a consistent and robust set of objects and functions that aid in the analysis of fluid dynamics and wind energy data using methods and algorithms that are well tested in the field.
 
 ToDo:
-   - [] add other decomposition methods (DMD, EMD, Fourier, etc...)
-   - [] build on the visualization tools
-   - [] add a wind energy package
-   - [] consider more aerodynamic properties
+   - [ ] add other decomposition methods (DMD, EMD, Fourier, etc...)
+   - [ ] build on the visualization tools
+   - [ ] add a wind energy package
+   - [ ] consider more aerodynamic properties
 
 Consider:
-   - [] adding a data loading package
-   - [] make compatible with other NREL toolboxes (Floris, SAMWICH Box, etc.)
+   - [ ] adding a data loading package
+   - [ ] make compatible with other NREL toolboxes (Floris, SAMWICH Box, etc.)
 
 
 The main object class in FlowTools is the FlowField class. All other other functions operate on instances of this class. FlowField requires two inputs: (1) velocities - a dict containing instantaneous velocities u, v, w, of a common size, (2) coordinates - a dict containing the coordinates, x, y, z, t, of the data.
@@ -49,8 +49,8 @@ The main object class in FlowTools is the FlowField class. All other other funct
 
 Acknowledgments
 ================
-Thanks to anyone who would like to contribute!
+Thanks to anyone who would like to contribute! Please see below. 
 
-Contributing
+License
 ================
-Please read CONTRIBUTING for details on our code of conduct, and the process for submitting pull requests to us.
+Please read LICENSE for details on the license for use and sharing.
