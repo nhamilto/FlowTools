@@ -43,32 +43,38 @@
             
   <div class="section" id="example-usage">
 <h1>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h1>
-<p>FlowTools does not <em>yet</em> include an data i/o, and requires that the user load data and format it correctly before constructing a FlowField object. Load data and arrange it into dicts of np.arrays where each array has a common shape.
-<a href="#id1"><span class="problematic" id="id2">``</span></a>`
-import numpy as np
-import matplotlib.pyplot as plt
-import FlowTools as ft</p>
-<p>#%% load data and make dictionaries for velocity and coordinates
-indat = h5py.File(‘testdata.csv’)</p>
-<p>u = np.asarray(indat[‘u’])
-v = np.asarray(indat[‘v’])
-w = np.asarray(indat[‘w’])
-x = np.asarray(indat[‘x’])
-y = np.asarray(indat[‘y’])
-z = np.asarray(indat[‘z’])
-timevec = np.asarray(indat[‘t’])</p>
-<p>velocities = {‘u’: u,
-‘v’: v,
-‘w’: w}</p>
-<p>coordinates = {‘x’: x,
-‘y’: y,
-‘z’: z,
-‘t’: timevec}
-# create FlowField object
-testflow = ft.FlowField(velocities, coordinates)
-# print object attributes
-testflow.who()
-<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p>FlowTools does not <em>yet</em> include an data i/o, and requires that the user load data and format it correctly before constructing a FlowField object. Load data and arrange it into dicts of np.arrays where each array has a common shape.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">FlowTools</span> <span class="kn">as</span> <span class="nn">ft</span>
+
+<span class="c1"># load data and make dictionaries for velocity and coordinates</span>
+<span class="n">indat</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;testdata.csv&#39;</span><span class="p">)</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">])</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">timevec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indat</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+
+<span class="n">velocities</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;u&#39;</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+              <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="n">v</span><span class="p">,</span>
+              <span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w</span><span class="p">}</span>
+
+<span class="n">coordinates</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+               <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+               <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">z</span><span class="p">,</span>
+               <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="n">timevec</span><span class="p">}</span>
+
+<span class="c1"># create FlowField object</span>
+<span class="n">testflow</span> <span class="o">=</span> <span class="n">ft</span><span class="o">.</span><span class="n">FlowField</span><span class="p">(</span><span class="n">velocities</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">)</span>
+
+<span class="c1"># print object attributes</span>
+<span class="n">testflow</span><span class="o">.</span><span class="n">who</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 
 

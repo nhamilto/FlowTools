@@ -6,8 +6,9 @@ You can contribute in many ways:
 
 Types of Contributions
 ----------------------
-#### Report Bugs
-Report bugs at `Link text <https://github.com/nhamilto/FlowTools/issues>`_ .
+Report Bugs
+^^^^^^^^^^^^^^^^^^
+Report bugs at `github.com/nhamilto/FlowTools/issues <https://github.com/nhamilto/FlowTools/issues>`_ .
 
 If you are reporting a bug, please include:
 
@@ -29,7 +30,7 @@ Wind Tools could always use more documentation, whether as part of the official 
 
 Submit Feedback
 ^^^^^^^^^^^^^^^^^^
-The best way to send feedback is to file an issue at `Link text <https://github.com/nhamilto/FlowTools/issues>`_ .
+The best way to send feedback is to file an issue at `github.com/nhamilto/FlowTools/issues <https://github.com/nhamilto/FlowTools/issues>`_ .
 
 If you are proposing a feature:
 
