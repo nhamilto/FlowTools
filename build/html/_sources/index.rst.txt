@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 FlowTools: analysis of fluid dynamics and wind energy data
-=====================================
+==========================================================
 
 Author: `Nicholas Hamilton <mailto:nicholas.hamilton@nrel.gov>`_
 
@@ -36,10 +36,10 @@ This Python module provides a set of tools for:
 The hope for this toolbox is to have a consistent and robust set of objects and functions that aid in the analysis of fluid dynamics and wind energy data using methods and algorithms that are well tested in the field.
 
 ToDo:
-   * add other decomposition methods (DMD, EMD, Fourier, etc...)
-   * build on the visualization tools
-   * add a wind energy package
-   * consider more aerodynamic properties
+   -[] add other decomposition methods (DMD, EMD, Fourier, etc...)
+   -[] build on the visualization tools
+   -[] add a wind energy package
+   -[] consider more aerodynamic properties
 
 Consider:
    * adding a data loading package

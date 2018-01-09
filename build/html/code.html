@@ -44,14 +44,207 @@
 <div class="section" id="flowfield-module">
 <h2><code class="docutils literal"><span class="pre">FlowField</span></code> module<a class="headerlink" href="#flowfield-module" title="Permalink to this headline">¶</a></h2>
 <p>This module contains the fundamental object class <em>FlowField</em> of the package.</p>
+<span class="target" id="module-flowtools.FlowField"></span><p>Created on Tue Jan  2 10:44:24 2018</p>
+<p>FlowField object creator within the FlowTools package.</p>
+<p>&#64;author: nhamilto
+&#64;contact: <a class="reference external" href="mailto:nicholas&#46;hamilton&#37;&#52;&#48;nrel&#46;gov">nicholas<span>&#46;</span>hamilton<span>&#64;</span>nrel<span>&#46;</span>gov</a>
+&#64;version: v.0.1</p>
+<dl class="class">
+<dt id="flowtools.FlowField.FlowField">
+<em class="property">class </em><code class="descclassname">flowtools.FlowField.</code><code class="descname">FlowField</code><span class="sig-paren">(</span><em>velocities</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#flowtools.FlowField.FlowField" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Flowfield class accepts velocities and coordinate information as
+inputs and contains internal methods that produce statistics and 
+descriptive elements of the field (i.e. turbulence, vorticity, etc.)</p>
+<dl class="docutils">
+<dt>velocities - dict containing at least one of ‘u’, ‘v’, ‘w’</dt>
+<dd>assumed to be arranged as u = f(x,y,z,t)</dd>
+</dl>
+<p>coordinates - dict containing at least one of ‘x’, ‘y’, ‘z’, ‘t’</p>
+</dd></dl>
+
 </div>
 <div class="section" id="snapshot-pod-module">
 <h2><code class="docutils literal"><span class="pre">snapshot_POD</span></code> module<a class="headerlink" href="#snapshot-pod-module" title="Permalink to this headline">¶</a></h2>
 <p>This module contains the functions necessary to implement the Proper Orthogonal decomposition on a set of turbulent flow data.</p>
+<span class="target" id="module-flowtools.snapshot_POD"></span><p>Created on Thu Jan  4 08:34:50 2018</p>
+<p>Snapshot Proper Orthogonal Decomposition module within the FlowTools package.</p>
+<p>&#64;author: nhamilto
+&#64;contact: <a class="reference external" href="mailto:nicholas&#46;hamilton&#37;&#52;&#48;nrel&#46;gov">nicholas<span>&#46;</span>hamilton<span>&#64;</span>nrel<span>&#46;</span>gov</a>
+&#64;version: v.0.1</p>
+<dl class="function">
+<dt id="flowtools.snapshot_POD.calc_coefficients">
+<code class="descclassname">flowtools.snapshot_POD.</code><code class="descname">calc_coefficients</code><span class="sig-paren">(</span><em>flowfield</em>, <em>nmodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flowtools.snapshot_POD.calc_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the POD mode coefficients (POD[‘coeff’]) that express the 
+amplitude of each mode in time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="flowtools.snapshot_POD.decompose">
+<code class="descclassname">flowtools.snapshot_POD.</code><code class="descname">decompose</code><span class="sig-paren">(</span><em>flowfield</em><span class="sig-paren">)</span><a class="headerlink" href="#flowtools.snapshot_POD.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>decompose a fluctuating velocity field into eigenfunctions (POD[‘modes’])
+and their associated eigenvalues (POD[‘lam’]) that express their energy in
+snapshot basis.
+The POD dict is returned as an attribute of the flowfield object.</p>
+<blockquote>
+<div>type(flowfield.POD) = dict</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="flowtools.snapshot_POD.recompose_flucfield">
+<code class="descclassname">flowtools.snapshot_POD.</code><code class="descname">recompose_flucfield</code><span class="sig-paren">(</span><em>flowfield</em>, <em>nmodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flowtools.snapshot_POD.recompose_flucfield" title="Permalink to this definition">¶</a></dt>
+<dd><p>reduced-order description of the turbulence field. Filters the fluctuating
+velocity field by truncating the POD mode basis and combinging with the
+respective coefficients.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="flowtools.snapshot_POD.recompose_rst">
+<code class="descclassname">flowtools.snapshot_POD.</code><code class="descname">recompose_rst</code><span class="sig-paren">(</span><em>flowfield</em>, <em>nmodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flowtools.snapshot_POD.recompose_rst" title="Permalink to this definition">¶</a></dt>
+<dd><p>reduced-order description of the turbulence field. Filters the Reynolds
+stress tensor by truncating the POD mode basis.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="io.open">
+<code class="descclassname">io.</code><code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open file and return a stream.  Raise IOError upon failure.</p>
+<p>file is either a text or byte string giving the name (and the path
+if the file isn’t in the current working directory) of the file to
+be opened or an integer file descriptor of the file to be
+wrapped. (If a file descriptor is given, it is closed when the
+returned I/O object is closed, unless closefd is set to False.)</p>
+<p>mode is an optional string that specifies the mode in which the file
+is opened. It defaults to ‘r’ which means open for reading in text
+mode.  Other common values are ‘w’ for writing (truncating the file if
+it already exists), ‘x’ for creating and writing to a new file, and
+‘a’ for appending (which on some Unix systems, means that all writes
+append to the end of the file regardless of the current seek position).
+In text mode, if encoding is not specified the encoding used is platform
+dependent: locale.getpreferredencoding(False) is called to get the
+current locale encoding. (For reading and writing raw bytes use binary
+mode and leave encoding unspecified.) The available modes are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Character</td>
+<td>Meaning</td>
+</tr>
+<tr class="row-even"><td>‘r’</td>
+<td>open for reading (default)</td>
+</tr>
+<tr class="row-odd"><td>‘w’</td>
+<td>open for writing, truncating the file first</td>
+</tr>
+<tr class="row-even"><td>‘x’</td>
+<td>create a new file and open it for writing</td>
+</tr>
+<tr class="row-odd"><td>‘a’</td>
+<td>open for writing, appending to the end of the file if it exists</td>
+</tr>
+<tr class="row-even"><td>‘b’</td>
+<td>binary mode</td>
+</tr>
+<tr class="row-odd"><td>‘t’</td>
+<td>text mode (default)</td>
+</tr>
+<tr class="row-even"><td>‘+’</td>
+<td>open a disk file for updating (reading and writing)</td>
+</tr>
+<tr class="row-odd"><td>‘U’</td>
+<td>universal newline mode (deprecated)</td>
+</tr>
+</tbody>
+</table>
+<p>The default mode is ‘rt’ (open for reading text). For binary random
+access, the mode ‘w+b’ opens and truncates the file to 0 bytes, while
+‘r+b’ opens the file without truncation. The ‘x’ mode implies ‘w’ and
+raises an <cite>FileExistsError</cite> if the file already exists.</p>
+<p>Python distinguishes between files opened in binary and text modes,
+even when the underlying operating system doesn’t. Files opened in
+binary mode (appending ‘b’ to the mode argument) return contents as
+bytes objects without any decoding. In text mode (the default, or when
+‘t’ is appended to the mode argument), the contents of the file are
+returned as strings, the bytes having been first decoded using a
+platform-dependent encoding or using the specified encoding if given.</p>
+<p>‘U’ mode is deprecated and will raise an exception in future versions
+of Python.  It has no effect in Python 3.  Use newline to control
+universal newlines mode.</p>
+<p>buffering is an optional integer used to set the buffering policy.
+Pass 0 to switch buffering off (only allowed in binary mode), 1 to select
+line buffering (only usable in text mode), and an integer &gt; 1 to indicate
+the size of a fixed-size chunk buffer.  When no buffering argument is
+given, the default buffering policy works as follows:</p>
+<ul class="simple">
+<li>Binary files are buffered in fixed-size chunks; the size of the buffer
+is chosen using a heuristic trying to determine the underlying device’s
+“block size” and falling back on <cite>io.DEFAULT_BUFFER_SIZE</cite>.
+On many systems, the buffer will typically be 4096 or 8192 bytes long.</li>
+<li>“Interactive” text files (files for which isatty() returns True)
+use line buffering.  Other text files use the policy described above
+for binary files.</li>
+</ul>
+<p>encoding is the name of the encoding used to decode or encode the
+file. This should only be used in text mode. The default encoding is
+platform dependent, but any encoding supported by Python can be
+passed.  See the codecs module for the list of supported encodings.</p>
+<p>errors is an optional string that specifies how encoding errors are to
+be handled—this argument should not be used in binary mode. Pass
+‘strict’ to raise a ValueError exception if there is an encoding error
+(the default of None has the same effect), or pass ‘ignore’ to ignore
+errors. (Note that ignoring encoding errors can lead to data loss.)
+See the documentation for codecs.register or run ‘help(codecs.Codec)’
+for a list of the permitted encoding error strings.</p>
+<p>newline controls how universal newlines works (it only applies to text
+mode). It can be None, ‘’, ‘n’, ‘r’, and ‘rn’.  It works as
+follows:</p>
+<ul class="simple">
+<li>On input, if newline is None, universal newlines mode is
+enabled. Lines in the input can end in ‘n’, ‘r’, or ‘rn’, and
+these are translated into ‘n’ before being returned to the
+caller. If it is ‘’, universal newline mode is enabled, but line
+endings are returned to the caller untranslated. If it has any of
+the other legal values, input lines are only terminated by the given
+string, and the line ending is returned to the caller untranslated.</li>
+<li>On output, if newline is None, any ‘n’ characters written are
+translated to the system default line separator, os.linesep. If
+newline is ‘’ or ‘n’, no translation takes place. If newline is any
+of the other legal values, any ‘n’ characters written are translated
+to the given string.</li>
+</ul>
+<p>If closefd is False, the underlying file descriptor will be kept open
+when the file is closed. This does not work when a file name is given
+and must be True in that case.</p>
+<p>A custom opener can be used by passing a callable as <em>opener</em>. The
+underlying file descriptor for the file object is then obtained by
+calling <em>opener</em> with (<em>file</em>, <em>flags</em>). <em>opener</em> must return an open
+file descriptor (passing os.open as <em>opener</em> results in functionality
+similar to passing None).</p>
+<p>open() returns a file object whose type depends on the mode, and
+through which the standard file operations such as reading and writing
+are performed. When open() is used to open a file in a text mode (‘w’,
+‘r’, ‘wt’, ‘rt’, etc.), it returns a TextIOWrapper. When used to open
+a file in a binary mode, the returned class varies: in read binary
+mode, it returns a BufferedReader; in write binary and append binary
+modes, it returns a BufferedWriter, and in read/write mode, it returns
+a BufferedRandom.</p>
+<p>It is also possible to use a string or bytearray as a file for both
+reading and writing. For strings StringIO can be used like a file
+opened in a text mode, and for bytes a BytesIO can be used like a file
+opened in a binary mode.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="vis-modules">
 <h2><code class="docutils literal"><span class="pre">vis</span></code> modules<a class="headerlink" href="#vis-modules" title="Permalink to this headline">¶</a></h2>
 <p>A few shortcuts to make consistent and effective visualizations of fluid flows.</p>
+<span class="target" id="module-flowtools.vis"></span><p>Created on Thu Jan  4 12:01:56 2018</p>
+<p>Flow Visualization module within the FlowTools package.</p>
+<p>&#64;author: nhamilto
+&#64;contact: <a class="reference external" href="mailto:nicholas&#46;hamilton&#37;&#52;&#48;nrel&#46;gov">nicholas<span>&#46;</span>hamilton<span>&#64;</span>nrel<span>&#46;</span>gov</a>.
+&#64;version: v.0.1</p>
 </div>
 </div>
 
