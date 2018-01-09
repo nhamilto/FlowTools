@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FlowTools &#8212; FlowTools v.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'v.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="CONTRIBUTING.html" />
+    <link rel="prev" title="Indices and tables" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="flowtools">
+<h1>FlowTools<a class="headerlink" href="#flowtools" title="Permalink to this headline">¶</a></h1>
+<p>FlowTools is a python package designed for the analysis of fluid flow data, including  of turbulent fluid dynamics and wind energy.</p>
+<p>Author: <a class="reference external" href="mailto:nicholas&#46;hamilton&#37;&#52;&#48;nrel&#46;gov">Nicholas Hamilton</a></p>
+<p>This Python module provides a set of tools for:</p>
+<ol class="arabic simple">
+<li>Calculating fundamental properties of fluid flows, such as:<ul>
+<li>Mean and fluctuating flow fields</li>
+<li>Gradient fields</li>
+<li>Vorticity</li>
+<li>… more to come…</li>
+</ul>
+</li>
+<li>Analysis of turbulence:<ul>
+<li>RMS velocities</li>
+<li>Reynolds stress tensor</li>
+<li>… more to come…</li>
+</ul>
+</li>
+<li>Numerical decomposition:<ul>
+<li><dl class="first docutils">
+<dt>Proper Orthogonal Decomposition</dt>
+<dd><ul class="first last">
+<li>decomposition into modal basis</li>
+<li>eigenvalues</li>
+<li>mode coefficients</li>
+<li>reconstruction of velocity snapshots or of turbulent stresses</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>Basic flow visualization</li>
+</ol>
+<p>The hope for this toolbox is to have a consistent and robust set of objects and functions that aid in the analysis of fluid dynamics and wind energy data using methods and algorithms that are well tested in the field.</p>
+<dl class="docutils">
+<dt>ToDo:</dt>
+<dd><ul class="first last simple">
+<li>[] add other decomposition methods (DMD, EMD, Fourier, etc…)</li>
+<li>[] build on the visualization tools</li>
+<li>[] add a wind energy package</li>
+<li>[] consider more aerodynamic properties</li>
+</ul>
+</dd>
+<dt>Consider:</dt>
+<dd><ul class="first last simple">
+<li>[] adding a data loading package</li>
+<li>[] make compatible with other NREL toolboxes (Floris, SAMWICH Box, etc.)</li>
+</ul>
+</dd>
+</dl>
+<p>The main object class in FlowTools is the FlowField class. All other other functions operate on instances of this class. FlowField requires two inputs: (1) velocities - a dict containing instantaneous velocities u, v, w, of a common size, (2) coordinates - a dict containing the coordinates, x, y, z, t, of the data.</p>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>Thanks to anyone who would like to contribute!</p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Please read CONTRIBUTING for details on our code of conduct, and the process for submitting pull requests to us.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FlowTools</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FlowTools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Required packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Example usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Indices and tables</a></li>
+      <li>Next: <a href="CONTRIBUTING.html" title="next chapter">Contributing</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Nicholas Hamilton.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/README.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

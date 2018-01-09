@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Python Module Index &#8212; FlowTools v.0.1 documentation</title>
+    <title>Example usage &#8212; FlowTools v.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,14 +24,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-
+    <link rel="next" title="Code Reference" href="code.html" />
+    <link rel="prev" title="Installing" href="installation.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-
 
   </head>
   <body>
@@ -42,39 +41,35 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-f"><strong>f</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-f"><td></td><td>
-       <strong>f</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">flowtools</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="code.html#module-flowtools.FlowField"><code class="xref">flowtools.FlowField</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="code.html#module-flowtools.snapshot_POD"><code class="xref">flowtools.snapshot_POD</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="code.html#module-flowtools.vis"><code class="xref">flowtools.vis</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <div class="section" id="example-usage">
+<h1>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h1>
+<p>FlowTools does not <em>yet</em> include an data i/o, and requires that the user load data and format it correctly before constructing a FlowField object. Load data and arrange it into dicts of np.arrays where each array has a common shape.
+<a href="#id1"><span class="problematic" id="id2">``</span></a>`
+import numpy as np
+import matplotlib.pyplot as plt
+import FlowTools as ft</p>
+<p>#%% load data and make dictionaries for velocity and coordinates
+indat = h5py.File(‘testdata.csv’)</p>
+<p>u = np.asarray(indat[‘u’])
+v = np.asarray(indat[‘v’])
+w = np.asarray(indat[‘w’])
+x = np.asarray(indat[‘x’])
+y = np.asarray(indat[‘y’])
+z = np.asarray(indat[‘z’])
+timevec = np.asarray(indat[‘t’])</p>
+<p>velocities = {‘u’: u,
+‘v’: v,
+‘w’: w}</p>
+<p>coordinates = {‘x’: x,
+‘y’: y,
+‘z’: z,
+‘t’: timevec}
+# create FlowField object
+testflow = ft.FlowField(velocities, coordinates)
+# print object attributes
+testflow.who()
+<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+</div>
 
 
           </div>
@@ -93,13 +88,13 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">FlowTools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">Required packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="requirements.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Example usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code.html">Code Reference</a></li>
 </ul>
 
@@ -107,6 +102,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installing</a></li>
+      <li>Next: <a href="code.html" title="next chapter">Code Reference</a></li>
   </ul></li>
 </ul>
 </div>
@@ -131,6 +128,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
+      |
+      <a href="_sources/usage.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     
