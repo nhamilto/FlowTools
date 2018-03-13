@@ -5,7 +5,7 @@ Created on Thu Jan  4 08:34:50 2018
 
 Snapshot Proper Orthogonal Decomposition module within the FlowTools package.
 
-@author: Nicholas Hamilton
+@author: nhamilto
 @contact: nicholas.hamilton@nrel.gov
 @version: v.0.1
 """
