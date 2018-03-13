@@ -6,9 +6,12 @@ FlowTools.egg-info/requires.txt
 FlowTools.egg-info/top_level.txt
 flowtools/FlowField.py
 flowtools/__init__.py
+flowtools/lidar_mod.py
 flowtools/snapshot_POD.py
 flowtools/flowvis/__init__.py
 flowtools/flowvis/lidar_mod.py
 flowtools/flowvis/vis.py
+flowtools/io/__init__.py
+flowtools/io/tar.py
 flowtools/lidartools/__init__.py
 flowtools/lidartools/lidar_mod.py

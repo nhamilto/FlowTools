@@ -12,7 +12,7 @@ __author__ = 'Nicholas Hamilton'
 __email__ = 'nicholas.hamilton@nrel.gov'
 __version__ = 'v.0.1'
 
-# from .FlowField import FlowField
-# from flowtools import snapshot_POD
-# from flowtools import vis
-# print('module initialized')
+from .FlowField import FlowField
+from flowtools import snapshot_POD
+from flowtools import flowvis
+print('module initialized')
