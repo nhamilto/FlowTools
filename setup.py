@@ -10,7 +10,6 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 """
-
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
@@ -39,12 +38,12 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     keywords='wind turbine energy wake analysis nrel nwtc',
-    packages=find_packages(),
+    packages=find_packages(here),
     install_requires=[
         'numpy >= 1.12.1',
         'scipy >= 0.19.1',
         'matplotlib >= 2.1.0',
         'pytest >= 3.3.1',
     ],
-    python_requires='~=3.6',
+    python_requires='>=3.6',
 )

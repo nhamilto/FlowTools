@@ -132,7 +132,7 @@ class lidarscan():
 
     #     return timestamp, ranges, rws, disp, cnr, header, azimuth
 
-def untar(tarfilename, format='r:*')
+def untar(tarfilename, format='r:*'):
         '''read data from tarball with given format'''
         tarobj = tarfile.open(tarfilename, format)
         assert tarobj.is_tarfile() 

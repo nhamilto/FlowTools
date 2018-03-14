@@ -13,6 +13,7 @@ __email__ = 'nicholas.hamilton@nrel.gov'
 __version__ = 'v.0.1'
 
 from .FlowField import FlowField
-from flowtools import snapshot_POD
-from flowtools import flowvis
+from flowtools import snapshot_POD as POD
+from flowtools import lidar_mod as lidar
+from flowtools import flowvis as vis
 print('module initialized')

@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import h5py 
 import sys
-sys.path.append('/Users/nhamilto/Documents/FlowTools')
+# sys.path.append('/Users/nhamilto/Documents/FlowTools')
 
 import flowtools as ft
 #from flowtools import FlowField
